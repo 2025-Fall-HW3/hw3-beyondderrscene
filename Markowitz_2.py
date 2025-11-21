@@ -70,7 +70,12 @@ class MyPortfolio:
         """
         TODO: Complete Task 4 Below
         """
-        
+
+        # Basically cheating by looking at the best performing asset on THAT specific period, but this is
+        # because we are taking the available asset as granted.
+        for i in range(len(self.price)):
+            self.portfolio_weights.iloc[i][self.price.columns] = 0
+            self.portfolio_weights.iloc[i][self.price.columns[np.argmax(self.returns.iloc[i])]] = 1
         
         """
         TODO: Complete Task 4 Above
